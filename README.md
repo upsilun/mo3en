@@ -1,5 +1,4 @@
-# Moen (معين)
-
+# معين
 Moen (معين) is the essential digital helper for King Khalid University students, built to track academic deadlines, organize personal reminders, and manage daily tasks in one simple place. Sync your entire schedule across all your devices with a simple ID to stay organized and focused on your success at KKU.
 
 ## ✨ Features
