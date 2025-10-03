@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Events & Tasks</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="app-header"><div class="logo">مُعين</div></header>
+    
+    <nav id="mobile-tabs">
+        <button class="tab-btn active" data-target="#academic-events">الجدول الاكاديمي</button>
+        <button class="tab-btn" data-target="#user-reminders">التذكيرات</button>
+        <button class="tab-btn" data-target="#todo-section">المهام</button>
+    </nav>
+    
+    <main>
+        <div id="auth-container"></div> <section id="academic-events" class="main-section active">
+            <h1>الجدول الاكاديمي</h1>
+            <div class="card" style="text-align: center;">
+                <img src="https://upload.wikimedia.org/wikipedia/ar/7/75/%D8%B4%D8%B9%D8%A7%D8%B1_%D8%AC%D8%A7%D9%85%D8%B9%D8%A9_%D8%A7%D9%84%D9%85%D9%84%D9%83_%D8%AE%D8%A7%D9%84%D8%AF.png" alt="" style="width: 13rem;">
+                <br>
+                <button id="load-previous-events-btn" class="load-previous-btn">استعرض ماقد سبق</button>
+                <div id="events-container"></div>
+            </div>
+        </section>
+
+        <section id="user-reminders" class="main-section">
+            <h1>التذكيرات</h1>
+            <div id="user-info"></div>
+            <div class="card form-card">
+                <form id="reminder-form">
+                    <input type="text" id="reminder-title" placeholder="عنوان التذكير" required><input type="date" id="reminder-date" required>
+                    <div class="time-toggle"><input type="checkbox" id="include-time"><label for="include-time">مع الوقت؟</label><input type="time" id="reminder-time" style=""></div>
+                    <div class="form-options"><input type="text" id="reminder-tag" placeholder="التصنيف" autocomplete="off"><div class="color-picker-wrapper"><label for="reminder-color"></label><input type="color" id="reminder-color" value="#007bff"></div></div>
+                    <div id="tag-suggestion-box"></div>
+                    <button type="submit">اضف تذكار</button>
+                </form>
+            </div>
+            <div id="tag-filters"></div>
+            <div style="text-align: center;"><button id="load-previous-reminders-btn" class="load-previous-btn">استعرض التذكارات السابقة</button></div>
+            <div id="reminders-container"></div>
+        </section>
+
+        <section id="todo-section" class="main-section">
+            <h1>المهام</h1>
+            <div class="card"><form id="todo-form"><input type="text" id="new-todo-input" placeholder="اضف مهمة جديدة..." required><button type="submit">اضف</button></form><ul id="todo-container"></ul></div>
+        </section>
+    </main>
+    
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+        :root {
+            --bg-color: #f8f9fa;
+            --card-color: #ffffff;
+            --text-color: #212529;
+            --secondary-text-color: #6c757d;
+            --shadow-color: rgba(0, 0, 0, 0.08);
+            --border-radius: 16px;
+            --accent-color: #007bff;
+            --border-color: #dee2e6;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { font-size: 17px; }
+
+        body {
+            font-family: 'Rubik', sans-serif;
+            font-size: bold;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            direction: rtl;
+        }
+
+        .app-header {
+            padding: 1rem 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 500;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .app-header .logo { /* Simple text logo */ text-align: center; font-size: 120px; font-size: bold; }
+
+        main {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr 1fr;
+            gap: 30px;
+            max-width: 1800px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+        
+        #auth-container {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 70vh;
+        }
+        
+        .auth-card { text-align: center; max-width: 400px; }
+        .auth-card h2 { margin-bottom: 1rem; }
+        .auth-card p { margin-bottom: 1.5rem; color: var(--secondary-text-color); }
+        .auth-card input { text-align: center; font-size: 1.2rem; letter-spacing: 3px; margin-bottom: 1rem; width: 100%; padding: 0.75rem; border-radius: 8px; border: 1px solid var(--border-color); }
+        .auth-card .button-group { display: flex; gap: 1rem; }
+        .auth-card button { flex: 1; padding: 0.75rem; border: none; border-radius: 8px; cursor: pointer; font-weight: 500; transition: background-color 0.2s; font-size: 1rem; }
+        #enter-id-btn { background-color: var(--accent-color); color: white; }
+        #generate-id-btn { background-color: #6c757d; color: white; }
+
+        section { display: flex; flex-direction: column; gap: 20px; }
+        h2 { text-align: center; font-weight: 500; }
+        .card {
+            background-color: var(--card-color);
+            border-radius: var(--border-radius);
+            box-shadow: 0 8px 24px var(--shadow-color);
+            padding: 25px;
+        }
+        .load-previous-btn {
+            background: none; border: 1px solid var(--border-color); color: var(--secondary-text-color);
+            padding: 8px 16px; border-radius: 20px; cursor: pointer; margin-bottom: 20px; transition: all 0.2s;
+        }
+        .load-previous-btn:hover { background-color: #e9ecef; }
+        .load-previous-btn:disabled { display: none; }
+
+        /* --- Section 1: Academic Events --- */
+        #events-container { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+        .event-card { width: 90%; text-align: center; }
+        .event-card .title { font-size: 1.2rem; font-weight: 500; margin-bottom: 8px; }
+        .event-card .countdown { font-size: 1.8rem; font-weight: 700; }
+        .event-card .label { font-size: 0.9rem; color: var(--secondary-text-color); }
+        .event-card.previous { background-color: #f1f3f5; color: var(--secondary-text-color); }
+        .event-card.next-upcoming { transform: scale(1.1); border: 2px solid var(--accent-color); box-shadow: 0 10px 30px rgba(0, 123, 255, 0.2); }
+        .event-card.next-upcoming .countdown { color: var(--accent-color); }
+        .event-card.upcoming { transform: scale(0.95); opacity: 0.8; }
+
+        /* --- Section 2: User Reminders --- */
+        #user-info { display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; padding: 10px; background-color: #e9ecef; border-radius: 10px; }
+        #user-info #user-id { font-weight: 700; background-color: var(--text-color); color: var(--card-color); padding: 2px 8px; border-radius: 5px; letter-spacing: 2px; }
+        #switch-id-btn { font-size: 0.8rem; background: none; border: 1px solid var(--secondary-text-color); color: var(--secondary-text-color); padding: 4px 8px; border-radius: 5px; cursor: pointer; }
+        .form-card input, .form-card button { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ced4da; font-family: 'Rubik', sans-serif; font-size: 1rem; margin-bottom: 15px; }
+        .form-card button { background-color: var(--accent-color); color: white; border: none; cursor: pointer; font-weight: 500; transition: background-color 0.2s; }
+        .form-options { display: flex; gap: 15px; align-items: center; }
+        input[type="color"] { padding: 0; height: 30px; width: 50px; border-radius: 5px; }
+        .time-toggle { display: flex; align-items: center; gap: 8px; font-size: 0.9rem; }
+        #tag-suggestion-box { display: none; font-size: 0.9em; padding: 10px; margin: -10px 0 10px 0; background-color: #eef5ff; border: 1px solid #b6d4fe; border-radius: 8px; animation: fadeIn 0.3s; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
+        .suggestion-content, .suggestion-actions { display: flex; align-items: center; justify-content: space-between; }
+        .color-swatch { width: 20px; height: 20px; border-radius: 50%; display: inline-block; vertical-align: middle; margin-left: 5px; border: 1px solid #ccc; }
+        .suggestion-actions button { background-color: #007bff; color: white; border: none; padding: 4px 10px; border-radius: 5px; cursor: pointer; font-size: 0.8em; margin: 0; width: auto; }
+        .suggestion-actions label { font-size: 0.8em; display: flex; align-items: center; gap: 4px; }
+        #tag-filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 10px; }
+        .tag-btn { background-color: #e9ecef; border: none; border-radius: 15px; padding: 5px 15px; cursor: pointer; transition: all 0.2s; font-size: 0.9rem; }
+        .tag-btn.active, .tag-btn:hover { background-color: var(--accent-color); color: white; }
+        #reminders-container { display: flex; flex-direction: column; gap: 20px; }
+        .reminder-card { display: flex; flex-direction: column; gap: 15px; border-left: 5px solid transparent; }
+        .reminder-card.previous { background-color: #f8f9fa; border-color: var(--border-color) !important; color: var(--secondary-text-color); }
+        .reminder-card-header, .reminder-card .tag { display: flex; justify-content: space-between; align-items: flex-start; font-size: 30px; }
+        .reminder-card .tag { font-size: 0.8rem; font-weight: 500; padding: 2px 8px; border-radius: 10px; color: white; width: fit-content; }
+        .reminder-card .countdown { text-align: right; font-size: 1.1rem; font-weight: 500; }
+
+        /* --- Section 3: To-Do List --- */
+        #todo-form { display: flex; gap: 10px; }
+        #new-todo-input { flex-grow: 1; padding: 12px; border-radius: 8px; border: 1px solid #ced4da; font-size: 1rem; }
+        #todo-form button { background-color: #28a745; color: white; border: none; padding: 0 20px; border-radius: 8px; cursor: pointer; font-weight: 500; transition: background-color 0.2s; }
+        #todo-container { list-style: none; margin-top: 20px; max-height: 60vh; overflow-y: auto; padding-right: 10px; }
+        #todo-container li { display: flex; align-items: center; gap: 10px; padding: 12px 5px; border-bottom: 1px solid #e9ecef; background-color: var(--card-color); }
+        #todo-container input[type="checkbox"] { width: 20px; height: 20px; cursor: pointer; flex-shrink: 0; }
+        #todo-container label { flex-grow: 1; transition: color 0.3s; }
+        #todo-container input[type="checkbox"]:checked + label { text-decoration: line-through; color: var(--secondary-text-color); }
+        .delete-btn { background: none; border: none; cursor: pointer; font-size: 1.2rem; color: #dc3545; opacity: 0.5; transition: opacity 0.2s; margin-left: auto; }
+        
+        /* --- Mobile Tab Interface --- */
+        #mobile-tabs { display: none; }
+        @media (max-width: 900px) {
+            .app-header { position: static; }
+            main { display: block; padding: 0; }
+            #mobile-tabs {
+                display: flex; background-color: var(--card-color);
+                box-shadow: 0 4px 12px var(--shadow-color);
+                position: sticky; top: 0; z-index: 99;
+            }
+            .tab-btn { flex: 1; padding: 1rem; border: none; background: none; font-size: 1rem; font-family: 'Rubik', sans-serif; color: var(--secondary-text-color); border-bottom: 3px solid transparent; cursor: pointer; }
+            .tab-btn.active { color: var(--accent-color); border-bottom-color: var(--accent-color); }
+            .main-section { display: none; padding: 1.5rem; }
+            .main-section.active { display: flex; }
+            .form-card, #todo-section { position: static; }
+        }

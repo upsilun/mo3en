@@ -1,0 +1,19 @@
+{
+  "name": "mo3en",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/upsilun/mo3en.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/upsilun/mo3en/issues"
+  },
+  "homepage": "https://github.com/upsilun/mo3en#readme"
+}
